@@ -33,7 +33,7 @@ def get_user_groups(user: User) -> List[Collection]:
 
 
 def get_user_groups_by_email(email: str) -> List[Collection]:
-    return Collection.query.filter(Collection.users.any(email=email)).all()
+    return Collection.query.filter(Collection.users.any(email=email)).order_by(Collection.name).all()
 
 
 class Groups(Resource):
